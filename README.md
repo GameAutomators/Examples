@@ -20,15 +20,15 @@ NOTE: The world’s most difficult Sudoku has also been solved using this automa
 <b>Requirements:</b>
 Computer with MATLAB, ADB Tool and required drivers set up. An Android Device with the ‘Sudoku Free’ game installed on it. (Turn on the Developer options for better visualization) Keep a USB data transfer cable handy.
 <br><br><br><br>
-<b>Block Diagram</b>
+<b>Block Diagram:</b><br>
 ![alt tag](https://raw.githubusercontent.com/sreetamdas/al_MASS/master/doc.png)
 <br><br><br><br>
 <b>Tutorial</b><br><br>
 <b>Step 1: Using ADB Tool to capture screenshot</b>
-The following command instantaneously takes the screenshot of the connected device and stores it in the SD card following the specified path.<br>
-`system(' adb shell screencap -p /sdcard/screen.png ');`<br><br><br>
-The following command pulls it from the SD card of the android device into the working system following the path specified.<br>
-`system(' adb pull /sdcard/screen.png ');`<br><br><br>
+The following command instantaneously takes the screenshot of the connected device and stores it in the SD card following the specified path.<br><br>
+`system(' adb shell screencap -p /sdcard/screen.png ');`<br><br>
+The following command pulls it from the SD card of the android device into the working system following the path specified.<br><br>
+`system(' adb pull /sdcard/screen.png ');`<br><br>
 The pulled image is stored in the form of a matrix of pixel values by the MATLAB.
 <br><br><br>
 <b>Step 2: Image processing and ADB Tool.</b>
