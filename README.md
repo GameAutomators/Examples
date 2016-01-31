@@ -15,13 +15,13 @@ NOTE: The world’s most difficult Sudoku has also been solved using this automa
 #TRIEDnTESTED
 <br><br><br><br>
 <b>Screenshot</b> of the Game:<br>
-![alt tag](https://raw.githubusercontent.com/sreetamdas/al_MASS/master/doc1.png)
+![alt tag](https://raw.githubusercontent.com/sreetamdas/al_MASS/master/doc.png)
 <br><br><br><br>
 <b>Requirements:</b>
 Computer with MATLAB, ADB Tool and required drivers set up. An Android Device with the ‘Sudoku Free’ game installed on it. (Turn on the Developer options for better visualization) Keep a USB data transfer cable handy.
 <br><br><br><br>
 <b>Block Diagram:</b><br>
-![alt tag](https://raw.githubusercontent.com/sreetamdas/al_MASS/master/doc.png)
+![alt tag](https://raw.githubusercontent.com/sreetamdas/al_MASS/master/doc1.png)
 <br><br><br><br>
 <b>Tutorial</b><br><br>
 <b>Step 1: Using ADB Tool to capture screenshot</b>
@@ -31,5 +31,14 @@ The following command pulls it from the SD card of the android device into the w
 `system(' adb pull /sdcard/screen.png ');`<br><br>
 The pulled image is stored in the form of a matrix of pixel values by the MATLAB.
 <br><br><br>
-<b>Step 2: Image processing and ADB Tool.</b>
-Once the screenshot is obtained, the algo of the code is programmed in such a way that it automatically generates the missing numbers in the Sudoku and auto fills the other matrices.
+<b>Step 2: Image processing and ADB Tool</b><br>
+`img = imread('screen.png')` command is used to read the image from the screen onto MATLAB. <br>
+The `ocr()` function recognizes texts in images and is useful in many computer vision applications such as image search, document analysis, and robot navigation. It provides an easy way to add text recognition functionality to a wide range of applications.
+
+<b>Step 3: ADB Tools</b><br>
+`ocr(a ,'TextLayout','Block')` command is used to read each block of text as a character and simulate it as an independent source.
+The screen is divided into various pixels, following which the pixel value is noted and used to evaluate the matrix positions.
+
+<b>Touch :</b><br>
+When the function `solver()` is uploaded using adb tools, the circuit produces a response in 0.615s and starts filling up the missing entries in the already existing Sudoku app.<br>
+There’s absolutely no need of human interference. The app gets hacked and produces a win in any case.
