@@ -4,6 +4,10 @@ Documentation for the Problem Statement by Team al_MASS during Hackathon 5.0
 <br><br>
 <b>Introduction:</b>
 This is basically one of the most played games in the world. In today’s session, we will be demonstrating how to hack the game “Sudoku Free” which is easily available on Google Playstore. The game is pretty simple and requires nothing much except following the normal rules of Sudoku- a digit once entered shouldn’t be repeated in its corresponding row and column.<br><br>
+<br>
+<b>Screenshot</b> of the Game:<br><br><br>
+![alt tag](https://raw.githubusercontent.com/sreetamdas/al_MASS/master/doc.png)
+<br><br><br><br><br><br><br><br><br><br>
 Playstore Link :  https://play.google.com/store/apps/details?id=le.lenovo.sudoku&hl=en<br><br>
 Difficulty Level: Hard<r>
 
@@ -12,9 +16,6 @@ Difficulty Level: Hard<r>
 <b>Overview:</b>
 The system’s perfect move is identified by using Image processing, the further move is calculated by the algorithm and is marked in the concerned box using ADB Tool. This continues as the algorithm tries to win the game in the best way possible. This game functions completely independently, i.e. it is not depend on any of the user’s input. The simulation will take place automatically and the game will be solved no matter what the level may be.
 NOTE: The world’s most difficult Sudoku has also been solved using this automated circuit. 
-<br><br><br><br>
-<b>Screenshot</b> of the Game:<br><br><br>
-![alt tag](https://raw.githubusercontent.com/sreetamdas/al_MASS/master/doc.png)
 <br><br><br><br>
 <b>Requirements:</b>
 Computer with MATLAB, ADB Tool and required drivers set up. An Android Device with the ‘Sudoku Free’ game installed on it. (Turn on the Developer options for better visualization) Keep a USB data transfer cable handy.
@@ -30,11 +31,16 @@ The following command pulls it from the SD card of the android device into the w
 `system(' adb pull /sdcard/screen.png ');`<br><br>
 The pulled image is stored in the form of a matrix of pixel values by the MATLAB.
 
-<b>Step 2: Image processing and ADB Tool</b><br>
+<b>Step 2: Image processing</b><br>
 `img = imread('screen.png')` command is used to read the image from the screen onto MATLAB. <br>
 The `ocr()` function recognizes texts in images and is useful in many computer vision applications such as image search, document analysis, and robot navigation. It provides an easy way to add text recognition functionality to a wide range of applications.
 
-<b>Step 3: ADB Tools</b><br>
+<b>Step 3: Algorithm</b><br>
+We start off with initializing the entire `9*9`  matrix with 0’s. <br>
+Next up, we declare a boolean type parameterized function `FindUnassignedLocation()` which accepts a `2x2` two-D Array along with the addresses of the row and the column. <br>Finally , we check whether the character extracted has been used in the corresponding row or column and proceed with the printing of the other digits at their respective positions using `printGrid()` function.
+
+
+<b>Step 4: ADB Tools</b><br>
 `ocr(a ,'TextLayout','Block')` command is used to read each block of text as a character and simulate it as an independent source.
 The screen is divided into various pixels, following which the pixel value is noted and used to evaluate the matrix positions.
 
