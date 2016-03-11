@@ -1,53 +1,33 @@
-%%Matlab  Code Find the Differences
-
-
-%%% % Pre-requisites:
-% % 1.Enable developer options in your android device
-% % 2.Install adb drivers for your device
-% % 3.Check if ADB device interface is the driver installed for your device
-% in device manager
-% % 4.To check if they are properly installed connect your device and run "adb devices" command from shell or command promt from the present working directory
-% % 5.Your device adb hostname must be displayed
-% % 6.Close the command prompt and tap play on your device. Run this script
-
-% % Note:1. If the device is being shown as offline disconnect and reconnect
-% your device
-% % 2. To stop the game find 10 differences between the two pictures. If 3
-% wrong differences are found simultaneously, a hint message pops up.
-
-
-clear all %% Clear all variables
-close all %% Close all open figures
-clc %% Clear command window
-
-% % Capturing screenshot and saving it to sdcard of the android device
-system('adb shell screencap -p /sdcard/screen.png');
+system('adb shell screencap -p /sdcard/test.png');
 
 % %  Pulling image to your working directory
-system('adb pull /sdcard/screen.png');
+system('adb pull /sdcard/test.png');
 
 % % Starts the stopwatch timer
 tic
 
 % % Reading pulled image from working directory 
-img = imread('screen.png');
+img = imread('test.png');
 
 % % Displaying the image pulled
 figure
 imshow (img);
 
-% % Cropping the two images having differences
-upper_crop = imcrop (img, [1 144 480-1 323]);
-lower_crop = imcrop (img, [1 474 480-1 323]);
+L = size(img, 1);
+B = size(img, 2);
+
+%% Cropping the two images having differences
+upper_crop = imcrop (img, [1 0.1415*L B-1 2*323]);
+lower_crop = imcrop (img, [1 0.545*L B-1 2*323]);
 figure
 imshow(upper_crop);
 
 figure
 imshow(lower_crop);
 
-
+%%
 % % Subtracting the two images
-img_diff = lower_crop-upper_crop
+img_diff = lower_crop-upper_crop;
 
 figure
 imshow(img_diff)
@@ -127,6 +107,3 @@ end
 
 % % Removing the scrrenshot saved in sdcard to save space 
 system('adb shell rm /sdcard/screen.png');
-
-% % Stops the stopwatch timer
-toc
