@@ -8,14 +8,14 @@ from os import system
 	Date: 13 Feb, 2016
 '''
 
-
 def move(k):
+	# _str = 'stick'+str(k)+'.png'
 	print k
 	system("adb shell screencap -p /sdcard/stick.png")
 	system("adb pull /sdcard/stick.png")
 
 	img = cv2.imread('stick.png')
-	img = img[800:820, 100:700]
+	img = img[800:820, 90:710]
 
 	lower = np.array([25, 25, 240])
 	upper = np.array([30, 30, 250])
@@ -46,8 +46,8 @@ def move(k):
 	        break
 
 	# print length-i
-	i = int(1.430*(length-i))  # Touch time calculation you can calibrate it
-	# print i # 
+	i = int(1.45*(length-i))  # Touch time calculation you can calibrate it
+	# print i 
 	system("adb shell input swipe 360 640 360 640 "+str(i))
 	# cv2.imshow('image', img)
 	# cv2.waitKey(0)
@@ -57,6 +57,7 @@ from time import sleep
 '''
  Checking for only 200 moves
 '''
+
 for k in range(0, 200):
-	move(k)
-	sleep(2.7) # After player moved to next block so sleep
+    move(k)
+    sleep(2.5) # After player moved to next block so sleep
