@@ -101,11 +101,10 @@ The Time complexity for sudoku solver written is O(n^b)  where n -> no. of possi
 and b -> no. of blank cell.
 
 The Space Complexity is Size of Sudoku and O(n^b) for recursive call stack.
-
-This can be seen be working backwards from only a single blank. If there is only one blank, then it have n possibilities that it must work through in the worst case. If there are two blanks, then it must work through n possibilities for the first blank and n possibilities for the second blank for each of the possibilities for the first blank. If there are three blanks, then you must work through n possibilities for the first blank. Each of those possibilities will yield a puzzle with two blanks that has n^2 possibilities.
-
-This algorithm performs a depth-first search through the possible solutions. Each level of the graph represents the choices for a single square. The depth of the graph is the number of squares that need to be filled. With a branching factor of n and a depth of m, finding a solution in the graph has a worst-case performance of O(n ^ m)
 ```
+<p>This can be seen be working backwards from only a single blank. If there is only one blank, then it have n possibilities that it must work through in the worst case. If there are two blanks, then it must work through n possibilities for the first blank and n possibilities for the second blank for each of the possibilities for the first blank. If there are three blanks, then you must work through n possibilities for the first blank. Each of those possibilities will yield a puzzle with two blanks that has n^2 possibilities.</p>
+
+<p>This algorithm performs a depth-first search through the possible solutions. Each level of the graph represents the choices for a single square. The depth of the graph is the number of squares that need to be filled. With a branching factor of n and a depth of m, finding a solution in the graph has a worst-case performance of O(n ^ m).</p>
 So for hardest sudkou this can take minutes or hours also.
 
 ##### Step 4: Using ADB Tool to simulate touch
