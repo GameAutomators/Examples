@@ -95,6 +95,18 @@ The code is written in python. it takes command line string input of length 81 a
 cmd = 'python sudoku.py ';
 [status,out] = system([cmd s]);
 ```
+##### Algorithm Complexity
+```
+The Time complexity for sudoku solver written is O(n^b)  where n -> no. of possibilty of numbers for each cell i,e 9
+and b -> no. of blank cell.
+
+The Space Complexity is Size of Sudoku and O(n^b) for recursive call stack.
+
+This can be seen be working backwards from only a single blank. If there is only one blank, then it have n possibilities that it must work through in the worst case. If there are two blanks, then it must work through n possibilities for the first blank and n possibilities for the second blank for each of the possibilities for the first blank. If there are three blanks, then you must work through n possibilities for the first blank. Each of those possibilities will yield a puzzle with two blanks that has n^2 possibilities.
+
+This algorithm performs a depth-first search through the possible solutions. Each level of the graph represents the choices for a single square. The depth of the graph is the number of squares that need to be filled. With a branching factor of n and a depth of m, finding a solution in the graph has a worst-case performance of O(n ^ m)
+```
+So for hardest sudkou this can take minutes or hours also.
 
 ##### Step 4: Using ADB Tool to simulate touch
 The following command taps at the point on the screen with the co-ordinates mentioned as (x, y) and then tap  on that specific number which is to be put there from bottom of screen. This is used to simulate touch at the appropriate points where we want to place the number.
