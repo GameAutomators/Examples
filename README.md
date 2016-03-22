@@ -56,6 +56,11 @@ information of screenshot. It is valid for any device with this resolution.
 ##### Step 3: Algorithm
 
 Minimax is a decision rule used in decision theory, game theory, statistics and philosophy for minimizing the possible loss for a worst case (maximum loss) scenario. Originally formulated for two-player zero-sum game theory, covering both the cases where players take alternate moves and those where they make simultaneous moves, it has also been extended to more complex games and to general decision-making in the presence of uncertainty.
+![Image](/Images/algo.png)
+
+###### Algorithm Complexity
+Time Complexity: O(b^d), where b is no. of blank cell and d is the depth to which algo. goes
+Space Complexity: O(bd)
 
 ```python
 def min_max_move(instance, marker):
